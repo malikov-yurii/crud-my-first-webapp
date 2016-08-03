@@ -9,7 +9,7 @@
 <br/>
 <a href="<c:url value="/users"/>" target="_blank">users list</a>
 <br> <br>
-<a href="search.jsp">Search Users</a>
+
 <br/>
 </body>
 </html>
