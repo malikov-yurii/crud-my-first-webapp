@@ -61,9 +61,28 @@ public class UserController {
     }
 
 //   !! it is not finished method, because I dont know how correctly attach it to form???
-    @RequestMapping(value = "/search", method = RequestMethod.GET)
-    public String searchUser(@ModelAttribute("user") User user, Model model) {
-        model.addAttribute("user", this.userService.getUserByName(user.getName()));
-        return "userdata";
+//    @RequestMapping(value = "/search", method = RequestMethod.GET)
+//    public String searchUser(@ModelAttribute("user") User user, Model model) {
+//        model.addAttribute("user", this.userService.getUserByName(user.getName()));
+//        return "userdata";
+//    }
+
+    @RequestMapping(value="/user-get-name-form")
+    public ModelAndView getUserNameForm() {
+        return new ModelAndView("user-name-form", "user-entity", new User());
     }
+
+    @RequestMapping(value="/process-user")
+    public ModelAndView processPerson(@ModelAttribute User user) {
+        ModelAndView modelAndView = new ModelAndView();
+
+        User user1 = this.userService.getUserByName(user.getName());
+        modelAndView.setViewName("user-result-page");
+
+
+        modelAndView.addObject("user1", user1);
+
+        return modelAndView;
+    }
+
 }
