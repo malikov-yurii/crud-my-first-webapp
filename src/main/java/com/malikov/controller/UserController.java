@@ -62,18 +62,8 @@ public class UserController {
 
 //   !! it is not finished method, because I dont know how correctly attach it to form???
     @RequestMapping(value = "/search", method = RequestMethod.GET)
-    public String searchUser(Model model){
-        User user = new User();
-        model.addAttribute("user", user);
-        user = this.userService.getUserByName(user.getName());
-        model.addAttribute("user", user);
-
+    public String searchUser(@ModelAttribute("user") User user, Model model) {
+        model.addAttribute("user", this.userService.getUserByName(user.getName()));
         return "userdata";
     }
-
-//    public String searchUser(@ModelAttribute("user") User user) {
-//        model.addAttribute("user", this.userService.getUserByName(user.getName()));
-//        return "userdata";
-//    }
-
 }
