@@ -50,7 +50,6 @@
 <a href="../../index.jsp">Back to main menu</a>
 
 <br/>
-<br/>
 
 <h1>User List</h1>
 
@@ -142,32 +141,9 @@
     </tr>
   </table>
 </form:form>
-<br> <br>
 
-<%--   this is my form from which I want to get name for search   --%>
-<%-- but I dont know how to connect it with userController and userDao correctly--%>
-<%--<c:url var="searchAction" value="/search"/>--%>
-<%--<form:form action="${searchAction}"  modelAttribute="user">--%>
-  <%--<table>--%>
-    <%--<tr>--%>
-      <%--<td>--%>
-        <%--<form:label path="name">--%>
-          <%--<spring:message text="Name"/>--%>
-        <%--</form:label>--%>
-      <%--</td>--%>
-      <%--<td>--%>
-        <%--<form:input path="name"/>--%>
-      <%--</td>--%>
-    <%--</tr>--%>
-    <%--<tr>--%>
-      <%--<td colspan="2">--%>
-        <%--<input type="submit" value="<spring:message text="Search User"/>"/>--%>
-      <%--</td>--%>
-    <%--</tr>--%>
-  <%--</table>--%>
-<%--</form:form>--%>
 
-<p><a href="user-get-name-form.html">Person page</a></p>
+<h1><p><a href="user-get-name-form.html">Find user by name</a></p></h1>
 
 </body>
 </html>
