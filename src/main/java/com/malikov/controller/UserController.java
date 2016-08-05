@@ -5,11 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -26,7 +22,6 @@ public class UserController {
     public String listUsers(Model model){
         model.addAttribute("user", new User());
         model.addAttribute("listUsers", this.userService.listUsers());
-
         return "users";
     }
 
@@ -40,7 +35,6 @@ public class UserController {
     public String editUser(@PathVariable("id") int id, Model model){
         model.addAttribute("user", this.userService.getUserById(id));
         model.addAttribute("listUsers", this.userService.listUsers());
-
         return "users";
     }
 
@@ -60,13 +54,6 @@ public class UserController {
         return "redirect:/users";
     }
 
-//   !! it is not finished method, because I dont know how correctly attach it to form???
-//    @RequestMapping(value = "/search", method = RequestMethod.GET)
-//    public String searchUser(@ModelAttribute("user") User user, Model model) {
-//        model.addAttribute("user", this.userService.getUserByName(user.getName()));
-//        return "userdata";
-//    }
-
     @RequestMapping(value="/user-get-name-form")
     public ModelAndView getUserNameForm() {
         return new ModelAndView("user-name-form", "user-entity", new User());
@@ -75,14 +62,9 @@ public class UserController {
     @RequestMapping(value="/process-user")
     public ModelAndView processPerson(@ModelAttribute User user) {
         ModelAndView modelAndView = new ModelAndView();
-
         User user1 = this.userService.getUserByName(user.getName());
         modelAndView.setViewName("user-result-page");
-
-
         modelAndView.addObject("user1", user1);
-
         return modelAndView;
     }
-
 }

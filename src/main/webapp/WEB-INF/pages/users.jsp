@@ -1,3 +1,4 @@
+<%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
@@ -47,39 +48,24 @@
   </style>
 </head>
 <body>
-<a href="../../index.jsp">Back to main menu</a>
-
 <br/>
+<a href="../../index.jsp">Back to main menu</a>
+<br/><br/>
+<a href="user-get-name-form.html">Find user by name</a>
+<br/>
+<h2>List of users</h2>
 
-<h1>User List</h1>
+<display:table id="user" name="listUsers" requestURI="/users" pagesize="4" class="tg" decorator="com.malikov.TableWrapper" >
+  <display:column property="id" title="ID" sortable="false"/>
+  <display:column property="name" title="Name" sortable="false"/>
+  <display:column property="age" title="Age" sortable="false"/>
+  <display:column property="admin" title="is Admin" sortable="false"/>
+  <display:column property="createDate" title="Date" sortable="false"/>
+  <display:column property="linkEdit" title="Edit" />
+  <display:column property="linkDelete" title="Delete" />
+</display:table>
 
-<c:if test="${!empty listUsers}">
-  <table class="tg">
-    <tr>
-      <th width="80">ID</th>
-      <th width="120">Name</th>
-      <th width="80">Age</th>
-      <th width="80">isAdmin</th>
-      <th width="120">Date</th>
-      <th width="60">Edit</th>
-      <th width="60">Delete</th>
-    </tr>
-    <c:forEach items="${listUsers}" var="user">
-      <tr>
-        <td>${user.id}</td>
-        <td><a href="/userdata/${user.id}" target="_blank">${user.name}</a></td>
-        <td>${user.age}</td>
-        <td>${user.admin}</td>
-        <td>${user.createDate}</td>
-        <td><a href="<c:url value='/edit/${user.id}'/>">Edit</a></td>
-        <td><a href="<c:url value='/remove/${user.id}'/>">Delete</a></td>
-      </tr>
-    </c:forEach>
-  </table>
-</c:if>
-
-
-<h1>Add a User</h1>
+<h2>Add/Edit a user</h2>
 
 <c:url var="addAction" value="/users/add"/>
 <form:form action="${addAction}" commandName="user">
@@ -129,21 +115,11 @@
     </tr>
     <tr>
       <td colspan="2">
-        <c:if test="${!empty user.name}">
-          <input type="submit"
-                 value="<spring:message text="Edit User"/>"/>
-        </c:if>
-        <c:if test="${empty user.name}">
-          <input type="submit"
-                 value="<spring:message text="Add User"/>"/>
-        </c:if>
+        <input type="submit" value="<spring:message text="Submit"/>"/>
       </td>
     </tr>
   </table>
 </form:form>
-
-
-<h1><p><a href="user-get-name-form.html">Find user by name</a></p></h1>
 
 </body>
 </html>

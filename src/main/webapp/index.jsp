@@ -5,10 +5,14 @@
   <title>Malikov</title>
 </head>
 <body>
-<h3>Users Database</h3>
 <br/>
-<a href="<c:url value="/users"/>" target="_blank">Get users list, add and edit users</a>
+<h2>Users database</h2>
+<br/>
+<%--<a href="<c:url value="/users"/>" target="_blank">Get list of users. Create, remove, edit a user</a>--%>
+<a href="users">Get list of users. Create, remove, edit a user</a>
 <br><br/>
-<a href="user-get-name-form.html">Find user by name</a>
+<a href="user-get-name-form">Find a user by a name</a>
+<br><br/>
+
 </body>
 </html>

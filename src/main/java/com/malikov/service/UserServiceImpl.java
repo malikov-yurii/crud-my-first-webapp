@@ -3,7 +3,6 @@ package com.malikov.service;
 import com.malikov.dao.UserDao;
 import com.malikov.model.User;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -45,7 +44,6 @@ public class UserServiceImpl implements UserService {
     public User getUserByName(String name) {
         return this.userDao.getUserByName(name);
     }
-
 
     @Override
     @Transactional
