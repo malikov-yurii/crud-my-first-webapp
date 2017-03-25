@@ -7,6 +7,12 @@
           <element id="module-output" name="cruds_malikov_1" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: displaytag:displaytag:1.2" />
+          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.1" />
+          <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.3" />
+          <element id="library" level="project" name="Maven: com.lowagie:itext:1.3" />
+          <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.7.0" />
+          <element id="library" level="project" name="Maven: org.slf4j:jcl104-over-slf4j:1.4.2" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.0.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.0.3.RELEASE" />
           <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />

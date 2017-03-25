@@ -3,6 +3,7 @@ package com.malikov;
 import com.malikov.model.User;
 import org.displaytag.decorator.TableDecorator;
 
+
 public class TableWrapper extends TableDecorator {
 
     public TableWrapper() {
