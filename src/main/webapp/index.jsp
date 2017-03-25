@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>Malikov</title>
+    <title>Malikov</title>
 </head>
 <body>
 <br/>

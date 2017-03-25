@@ -3,11 +3,13 @@ package com.malikov.service;
 import com.malikov.dao.UserDao;
 import com.malikov.model.User;
 import org.springframework.stereotype.Service;
+
 import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
+
     private UserDao userDao;
 
     public void setUserDao(UserDao userDao) {

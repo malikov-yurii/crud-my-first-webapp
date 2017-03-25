@@ -1,8 +1,8 @@
 package com.malikov.model;
 
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
-import javax.persistence.*;
 
 @Entity
 @Table(name = "user")
@@ -52,9 +52,11 @@ public class User {
     public boolean isAdmin() {
         return isAdmin;
     }
+
     public boolean isIsAdmin() {
         return isAdmin;
     }
+
     public boolean getIsAdmin() {
         return isAdmin;
     }
@@ -82,4 +84,5 @@ public class User {
                 ", createDate=" + createDate +
                 '}';
     }
+
 }

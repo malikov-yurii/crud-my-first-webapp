@@ -11,11 +11,13 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class UserDaoImpl implements UserDao{
-    private static final Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
-    private SessionFactory sessionFactory;
-    public void setSessionFactory(SessionFactory sessionFactory) {
+public class UserDaoImpl implements UserDao {
 
+    private static final Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
+
+    private SessionFactory sessionFactory;
+
+    public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
@@ -37,7 +39,7 @@ public class UserDaoImpl implements UserDao{
     public void removeUser(int id) {
         Session session = this.sessionFactory.getCurrentSession();
         User user = (User) session.load(User.class, new Integer(id));
-        if (user!=null)
+        if (user != null)
             session.delete(user);
         logger.info("User successfully removed. User details: " + user);
     }
@@ -55,7 +57,7 @@ public class UserDaoImpl implements UserDao{
     public List<User> listUsers() {
         Session session = this.sessionFactory.getCurrentSession();
         List<User> userList = session.createQuery("from User").list();
-        for (User user: userList)
+        for (User user : userList)
             logger.info("User list: " + user);
         return userList;
     }
@@ -70,4 +72,5 @@ public class UserDaoImpl implements UserDao{
         logger.info("User list: " + user);
         return user;
     }
+
 }
